@@ -1,0 +1,23 @@
+#!/bin/bash
+yum install httpd -y
+yum install git -y
+systemctl start httpd
+systemctl enable httpd 
+
+git clone https://github.com/djimgou/project1.git
+cp -R project1/* /var/www/html/
+
+For load balancing:
+echo "Jafer is getting response from $(hostname -f)" > /var/www/html/index.html
+
+link for getting code of deploying load balancer:
+jafer.in/aws/ec2
+
+For security Group:
+22 = SSH (Secure Shell) - log into a Linux instance
+21 = FTP (File Transfer Protocol) – upload files into a file share
+22 = SFTP (Secure File Transfer Protocol) – upload files using SSH
+80 = HTTP – access unsecured websites
+443 = HTTPS – access secured websites
+3389 = RDP - log into windows machines
+ 53  = DNS
